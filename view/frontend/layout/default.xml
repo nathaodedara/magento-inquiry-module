@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<body>
+    <referenceBlock name="header.links">
+        <block class="Magento\Framework\View\Element\Html\Link" name="inquiry" after="-">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Inquiry us</argument>
+                <argument name="path" xsi:type="string" translate="false">inquiry</argument>
+            </arguments>
+        </block>
+        <move element="inquiry" destination="header.links"/>
+    </referenceBlock>
+</body>

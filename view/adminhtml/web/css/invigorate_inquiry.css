@@ -1,0 +1,17 @@
+.admin__menu .level-0.item-inquiry > a:before {
+    content: url('../images/invigoratelogo.png');
+    height: 22px;
+}
+.config-nav-block.invigorate_inquiry_logo strong:before {
+  background-image: url('../images/invigoratelogo.png');
+  width: 30px;
+  height: 26px;
+  content: '';
+  display: inline-block;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.lock-textarea {
+	max-height: 150px;
+	min-height: 50px;
+}

@@ -1,0 +1,48 @@
+<?php
+	$countryCollection = $block->getCountryCollection();
+	$helper = $this->helper('Invigorate\Inquiry\Helper\Data');
+	$interested_area = $helper->getStoreConfig('inquiry/active_display/scope');
+	$budget_limits = $helper->getNonSerializeData('inquiry/budget_group/budget_field_textarea');
+	$budget_limits = explode(",",$budget_limits);
+?>
+<div class="inquiry-container">
+	<h1><?php echo __('Fill up Inquiry form'); ?></h1>
+	<center>
+	<form id="inqury_form" class="form-container" name="inqury_form" method="POST" action="<?php echo $block->getFormAction() ?>">
+		<input type="text" name="first_name" placeholder="Enter first name (Required)" data-validate="{required:true, 'letters-only':true, minlength:3}" /><br><br>
+		<select name="country" data-validate="{required:true}">
+			<option value="">Select Country (Required): </option>
+			<?php foreach($countryCollection as $country){ 
+				$country_id = $country['country_id'];
+				$country_idd = $this->getCountryName($country_id);
+				if($country_idd){ ?>
+				<option value="<?php echo $country_idd; ?>"><?php echo $country_idd; ?></option>
+				<?php }
+			}?>
+		</select><br><br>
+		<input type="text" name="email_address" placeholder="E-mail Address (Required)" data-validate="{required:true}" /><br><br>
+		<input type="text" name="phone_number" placeholder="Mobile number (Required)" data-validate="{required:true, 'no-whitespace':true, 'validate-number':true, minlength:8}" /><br><br>
+		<select name="interested_area">
+			<option value="">Interested In: </option>
+			<?php foreach ($interested_area as $key => $data): ?>
+	      		<option value="<?php echo $data['interested_fields']; ?>"><?php echo $data['interested_fields']; ?></option>  
+        	<?php endforeach; ?>
+		</select><br><br>
+		<select name="budget_area">
+			<option value="">Budget Limits: </option>
+			<?php foreach ($budget_limits as $key => $data): ?>
+	      		<option value="<?php echo $data; ?>"><?php echo $data; ?></option>  
+        	<?php endforeach; ?>
+		</select><br><br>
+		<textarea name="description_msg" style="resize: none;" name="description_msg" placeholder="Enter your message here! (Required)" data-validate="{required:true, minlength:5, maxlength:100}"></textarea><br><br>
+		<input type="submit" name="btn_submit_inquiry" value="Submit">
+		<script type="text/x-magento-init">
+		    {
+		        "#inqury_form": {
+		            "validation": {}
+		        }
+			}
+		</script>
+	</form>
+</center>
+</div>

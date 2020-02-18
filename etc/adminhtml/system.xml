@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="discount" class="invigorate_inquiry_logo" translate="label" sortOrder="100">
+            <label>Invigorate Systems</label>
+        </tab>
+        <section id="inquiry" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Inquiry Module</label>
+            <tab>discount</tab>
+            <resource>Invigorate_Inquiry::inquiry_config</resource>
+            <group id="active_display" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Add/Remove Interested Field Options</label>
+                <field id="scope" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Fields</label>
+                    <frontend_model>Invigorate\Inquiry\Block\Adminhtml\Menu\Field\AdditionalItem</frontend_model>
+                    <backend_model>Invigorate\Inquiry\Block\Adminhtml\Menu\Config\Backend\AdditionalItem</backend_model>
+                </field>
+            </group>
+            <group id="budget_group" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Add/Remove Budget Field Options</label>
+                <field id="budget_field_textarea" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Budget Field</label>
+                    <frontend_class>lock-textarea</frontend_class>
+                    <comment>Seperate each value by comma(,)</comment>
+                </field>
+            </group>
+            <!-- <group id="budget_group" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Add/Remove Budget Field Options</label>
+                <field id="budget_field" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>BudgetFields</label>
+                    <frontend_model>Invigorate\Inquiry\Block\Adminhtml\Budget\Field\AdditionalItem</frontend_model>
+                    <backend_model>Invigorate\Inquiry\Block\Adminhtml\Budget\Config\Backend\AdditionalItem</backend_model>
+                </field>
+            </group> -->
+        </section>
+    </system>
+</config>

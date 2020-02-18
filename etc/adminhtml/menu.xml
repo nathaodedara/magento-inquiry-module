@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Invigorate_Inquiry::inquiry" title="Inquiry Records" module="Invigorate_Inquiry" sortOrder="10" resource="Invigorate_Inquiry::inquiry" />
+        <add id="Invigorate_Inquiry::add_row" title="Manage Inquiry Records" module="Invigorate_Inquiry" sortOrder="20" parent="Invigorate_Inquiry::inquiry" action="inquiry" resource="Invigorate_Inquiry::add_row"/>
+        <add id="Invigorate_Inquiry::inquiry_config" title="Configuration" module="Invigorate_Inquiry" parent="Invigorate_Inquiry::inquiry" sortOrder="100" action="adminhtml/system_config/edit/section/inquiry" resource="Invigorate_Inquiry::inquiry_config"/>
+    </menu>
+</config>
